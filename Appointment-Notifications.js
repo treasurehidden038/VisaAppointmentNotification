@@ -2,9 +2,6 @@ var lastMessage = '';
 var continueReading = 0;
 
 // TODO: You need to setup local webserver and replace below video link with it.
-// Download video to a local directory: https://www.youtube.com/watch?v=7Gg8HO7a0-g
-// Download websever (windows): https://apps.microsoft.com/store/detail/easy-web-server/9N10MCD0671V?hl=en-us&gl=US
-// Configure websever to publish content of your directory. Assuming you configured it to port 8181 and video name is "Sample-Video.mp4" below link will work.
 var videoURL = "http://127.0.0.1:8181/Sample-Video.mp4";
 var song_video = 'song_video';
 var songElement_video;
