@@ -152,9 +152,10 @@ function checkText(nm) {
  
         if (nm.indexOf("NOT AVAI") == -1 && nm.indexOf("?") == -1) {
             if (nm.indexOf("NA") == -1 || nm.indexOf("NAI") == nm.indexOf("NA")) {
-                
-                readAndPlay(nm, songElement_video);
-                return true;
+                if (nm.length > 30) {
+                    readAndPlay(nm, songElement_video);
+                    return true;
+                }
             }
         }
     }
