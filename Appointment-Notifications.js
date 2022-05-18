@@ -1,8 +1,9 @@
+var MAX_MESSAGES_AFTER_AVAILABILITY = 2;
+
 var lastMessage = '';
 var continueReading = 0;
 
-// TODO: You need to setup local webserver and replace below video link with it.
-var videoURL = "http://127.0.0.1:8181/Sample-Video.mp4";
+var videoURL = "https://github.com/treasurehidden038/VisaAppointmentNotification/blob/main/Sample-Video.mp4?raw=true";
 var song_video = 'song_video';
 var songElement_video;
 
@@ -35,30 +36,6 @@ function createVideoControl(mediaPath, mediaType, mediaId, divElement) {
     media.setAttribute('height', '200');
     media.setAttribute('width', '300');
     media.volume = 0.0;
-    media.loop = true;
-    media.load();
-
-    divElement.appendChild(media);
-
-    return document.getElementById(mediaId);
-}
-
-function createSongControl(mediaPath, mediaType, mediaId, divElement) {
-    var media = document.getElementById(mediaId);
-
-    if (typeof(media) != 'undefined' && media != null) {
-        media.parentNode.removeChild(media);
-    }
-    
-    media = document.createElement('audio');
-
-    media.id       = mediaId;
-    media.controls = 'controls';
-    media.src      = mediaPath;
-    media.type     = mediaType;
-    // media.hidden = 1;
-    media.volume = 0.0;
-
     media.loop = true;
     media.load();
 
@@ -125,7 +102,7 @@ function myLoad() {
     }
 
     if (played) {
-        continueReading = 2;
+        continueReading = MAX_MESSAGES_AFTER_AVAILABILITY;
     } else if (continueReading > 0) {
         readMessage("Negative! " + newPart);
         continueReading -= 1;
